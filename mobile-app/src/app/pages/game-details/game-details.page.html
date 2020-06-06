@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+
+      
+    </ion-buttons>
+
+    <ion-buttons    right >
+      <button ion-button style="background-color: #3880ff ; margin-left: 6.5cm;" [routerLink]="['/', 'basket']" >
+
+          <ion-icon name="cart"  slot="start"  style="color: white; background-color:#3880ff;"></ion-icon>
+      </button>
+  </ion-buttons>
+
+    
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-card *ngIf="information">
+    <ion-card-header>
+      <ion-card-title>
+        {{ information.name }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{ information.released }}
+        
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content text-center>
+      <img [src]="information.background_image" class="info-img">
+      
+      <div [innerHTML]="information.description"></div>    
+ 
+      <ion-item lines="none">
+        <ion-icon name="star-half" slot="start"></ion-icon>
+        <ion-label>{{ information.rating }}</ion-label>
+      </ion-item>
+ 
+
+ 
+      <ion-button expand="full" (click)="addToCart()" >
+        <ion-icon name="cart" slot="start"></ion-icon>
+        Add to Basket
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
